@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import WeatherState from './context/WeatherState';
+import Search from './components/Search';
 import './App.css';
+import Daily from './components/Daily';
+import Weather from './components/Weather';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <WeatherState>
+        <div>
+          <Search />
+          <Switch>
+            <Route exact path='/' component={Weather} />
+            <Route exact path='/daily' component={Daily} />
+          </Switch>
+        </div>
+      </WeatherState>
+    </Router>
   );
-}
+};
 
 export default App;
