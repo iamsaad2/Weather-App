@@ -16,7 +16,7 @@ const WeatherState = (props) => {
   //Get Weather
   const searchWeather = async (text) => {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${text}&units=imperial&appid=${API}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=imperial&appid=${API}`
     );
 
     const data = await response.json();
